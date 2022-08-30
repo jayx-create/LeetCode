@@ -26,3 +26,5 @@ class Solution {
         return isSameTree(p.left,q.left) &&  isSameTree(p.right,q.right);
     }
 }
+//time = O(n) number of nodes in tree
+//space = O(n) in the worse case
