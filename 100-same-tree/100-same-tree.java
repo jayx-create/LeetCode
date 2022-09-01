@@ -15,16 +15,12 @@
  */
 class Solution {
     public boolean isSameTree(TreeNode p, TreeNode q) {
-        // error case
-        if( p== null && q==null) return true;
-        // if one tree is null
-        if( p==null || q == null) return false;
-        //one of p and q has a different value
+        if( p == null && q == null) return true;
+        
+        if( p == null || q == null ) return false;
+        
         if( p.val != q.val) return false;
         
-        //check left and right tree recursively 
-        return isSameTree(p.left,q.left) &&  isSameTree(p.right,q.right);
+        return isSameTree(p.left,q.left) && isSameTree(q.right,p.right);
     }
 }
-//time = O(n) number of nodes in tree
-//space = O(n) in the worse case
