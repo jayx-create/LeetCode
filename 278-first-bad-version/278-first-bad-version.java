@@ -3,6 +3,7 @@
 
 public class Solution extends VersionControl {
     public int firstBadVersion(int n) {
+        // Use binary Search to find the bad versions
         int left = 0;
         int right = n;
         while ( left < right ){
