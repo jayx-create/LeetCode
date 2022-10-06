@@ -11,11 +11,16 @@
  */
 public class Solution {
     public boolean hasCycle(ListNode head) {
-        ListNode slow=head;
+        // We will use the tortise and the hare algorithm which will help us
+        // determine if it is a cycle. We will have a slow and fast pointer 
+        // which will evenetually result in the fast pointer meeting with the slow pointer if
+        // it is a cycle
+        
+        ListNode slow = head;
         ListNode fast = head;
         while( fast != null && fast.next != null){
-            fast= fast.next.next;
-            slow=slow.next;
+            slow = slow.next;
+            fast = fast.next.next;
             if( fast == slow) return true;
         }
         return false;
