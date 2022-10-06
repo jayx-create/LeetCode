@@ -1,13 +1,8 @@
 class Solution {
     public int removeDuplicates(int[] nums) {
-        
-        // Have two pointers one fast and slow
-        // slow ++ when fast is a diff number
-        // Make slow equal to fast when new number
-        // return slow + 1;
         int slow = 0;
-        for( int fast = 0; fast < nums.length; fast++){
-            if ( nums[slow] != nums[fast]){
+        for ( int fast = 0; fast < nums.length; fast ++){
+            if( nums[slow] != nums[fast]){
                 slow++;
                 nums[slow] = nums[fast];
             }
