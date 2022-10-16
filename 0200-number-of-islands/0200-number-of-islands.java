@@ -1,27 +1,32 @@
 class Solution {
     public int numIslands(char[][] grid) {
-        int m = grid.length, n = grid[0].length, count = 0;
-        for(int i = 0; i < m; i++){
-            for(int j = 0; j < n; j++){
-                if(grid[i][j] == '1'){
-                    count++;
-                    dfs(grid, i, j);
+        if( grid == null || grid.length == 0){
+            return 0;
+        }
+        int m = grid.length;
+        int n = grid[0].length;
+        int counts = 0;
+        
+        for( int i = 0; i < m; i++){
+            for( int j = 0; j < n; j++){
+                if( grid[i][j] == '1'){
+                    counts++;
+                    visitDfs( grid, i, j);
                 }
             }
+            
         }
-        return count;
-    }
-    
-    void dfs(char[][] grid, int row, int col){
-        
-        if(row < 0 || col < 0 || row >= grid.length 
-           || col >= grid[0].length || grid[row][col] == '0') return;
-		   
-        grid[row][col] = '0'; // mark visited 
-        
-        dfs(grid, row-1, col);
-        dfs(grid, row, col-1);
-        dfs(grid, row+1, col);
-        dfs(grid, row, col+1);
+        return counts;
+        }
+    private void visitDfs( char[][] grid, int x, int y){
+            if( x < 0 || y < 0 || x >= grid.length || y >= grid[0].length || grid[x][y] == '0')
+                return;
+            
+            grid[x][y]= '0';
+            
+            visitDfs( grid, x + 1, y);
+            visitDfs( grid, x - 1, y);
+            visitDfs( grid, x, y + 1);
+            visitDfs(grid, x, y - 1);
     }
 }
