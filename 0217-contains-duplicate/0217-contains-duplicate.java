@@ -5,7 +5,7 @@ class Solution {
         //if we have not see the number we will add it into the hashset to store
         //else if no duplciate in the hashmap we will program false;
         HashSet<Integer> set = new HashSet<>();
-        for ( int i = 0; i < nums.length; i++){
+        for( int i = 0; i < nums.length; i++){
             if( set.contains(nums[i])) return true;
             set.add(nums[i]);
         }
